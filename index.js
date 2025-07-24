@@ -28,8 +28,8 @@ app.get("/google", (req, res) => {
     access_type: "offline",
     scope: [
       "https://www.googleapis.com/auth/calendar.readonly",
-      "https://www.googleapis.com/auth/userinfo.email",
-      "https://www.googleapis.com/auth/userinfo.profile",
+      // "https://www.googleapis.com/auth/userinfo.email",
+      // "https://www.googleapis.com/auth/userinfo.profile",
       'https://www.googleapis.com/auth/calendar'
     ],
     email: req.query.email || "",
@@ -54,7 +54,7 @@ app.get("/google/redirect", async (req, res) => {
       { upsert: true, new: true }
     );
 
-    res.redirect(`https://google-calendar-meet-frontend.vercel.app/dashboard?email=${email}`);
+    res.redirect(`https://google-calendar-meet-frontend.vercel.app/dashboard`);
   } catch (error) {
     console.error("OAuth Error:", error.response?.data || error.message);
     res.status(500).send("OAuth failed");
