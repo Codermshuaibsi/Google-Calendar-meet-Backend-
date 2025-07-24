@@ -54,7 +54,7 @@ app.get("/google/redirect", async (req, res) => {
       { upsert: true, new: true }
     );
 
-    res.redirect(`http://localhost:3000/dashboard?email=${email}`);
+    res.redirect(`https://google-calendar-meet-frontend.vercel.app/dashboard?email=${email}`);
   } catch (error) {
     console.error("OAuth Error:", error.response?.data || error.message);
     res.status(500).send("OAuth failed");
