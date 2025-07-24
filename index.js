@@ -118,6 +118,7 @@ app.post("/create/event", async (req, res) => {
       resource: {
         ...event,
         conferenceData: {
+          ...(event.conferenceData || {}),
           createRequest: {
             requestId: Math.random().toString(36).substring(2), // unique identifier
             conferenceSolutionKey: { type: "hangoutsMeet" },
